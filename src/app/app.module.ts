@@ -9,7 +9,7 @@ import { StarComponent } from './shared/star.component';
 import { PrdouctService } from './product/product.service';
 import { ProductDetailComponent } from './product/product-detail.component';
 import { WelcomeComponent } from './home/welcome.component';
-import {RouterModule} from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -23,15 +23,19 @@ import {RouterModule} from '@angular/router';
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot([
+    AppRoutingModule
+  ],
+  providers: [PrdouctService],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+/*
+  RouterModule.forRoot([
       {path: 'products', component: ProductListComponent},
       {path: 'products/:id', component: ProductDetailComponent},
       {path: 'welcome', component: WelcomeComponent},
       {path: '', redirectTo:'welcome', pathMatch: 'full'},
       {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
     ])
-  ],
-  providers: [PrdouctService],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+*/
